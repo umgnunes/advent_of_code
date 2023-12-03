@@ -1,3 +1,8 @@
 #include "common.hpp"
 
-int main() { return 0; }
+int main() {
+  for (string line; getline(cin, line);) {
+    print_elem(line);
+  }
+  return 0;
+}
