@@ -6,7 +6,7 @@ int main() {
   int first_digit = -1, last_digit;
   int sum = 0;
   for (string line; getline(cin, line);) {
-    // print_num(line);
+    // print_elem(line);
     for (char c : line) {
       if ('0' <= c && c <= '9') {
         last_digit = c - '0';
@@ -19,7 +19,7 @@ int main() {
     first_digit = -1;
   }
 
-  print_num(sum);
+  print_elem(sum);
   return 0;
 }
 #else
@@ -47,7 +47,7 @@ int main() {
       find(search_table.begin(), search_table.end(), string("one"));
   int sum = 0;
   for (string line; getline(cin, line);) {
-    // print_num(line);
+    // print_elem(line);
     int first_digit_pos = line.size(), last_digit_pos = -1;
     string first_digit_str, last_digit_str;
     for (int i = 0; i < search_table.size(); ++i) {
@@ -69,13 +69,13 @@ int main() {
         get_digit(search_table, first_digit_str, it_one, it_1);
     const int last_digit =
         get_digit(search_table, last_digit_str, it_one, it_1);
-    // print_num(first_digit);
-    // print_num(last_digit);
+    // print_elem(first_digit);
+    // print_elem(last_digit);
     // cout << line << ' ' << first_digit << ' ' << last_digit << '\n';
     sum += 10 * first_digit + last_digit;
   }
 
-  print_num(sum);
+  print_elem(sum);
   return 0;
 }
 #endif

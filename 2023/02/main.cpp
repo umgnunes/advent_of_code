@@ -8,8 +8,8 @@ bool is_num_cubes_valid(string cubes_str) {
   const int pos = cubes_str.find(" ");
   const int num_cubes = stoi(cubes_str.substr(0, pos));
   const string color = cubes_str.substr(pos + 1);
-  // print_num(num_cubes);
-  // print_num(color);
+  // print_elem(num_cubes);
+  // print_elem(color);
   if (num_cubes > max_cubes_colors[color]) {
     return false;
   }
@@ -23,16 +23,16 @@ int main() {
     int pos = line.find(": ");
     const int game_id = stoi(line.substr(0, pos));
     line.erase(0, pos + 2);
-    // print_num(line);
-    // print_num(game_id);
+    // print_elem(line);
+    // print_elem(game_id);
     bool game_id_ok = true;
     while ((pos = line.find("; ")) != string::npos && game_id_ok) {
       string game_subset = line.substr(0, pos);
       line.erase(0, pos + 2);
       while ((pos = game_subset.find(", ")) != string::npos && game_id_ok) {
         string cubes_str = game_subset.substr(0, pos);
-        // print_num(cubes_str);
-        // print_num(game_subset);
+        // print_elem(cubes_str);
+        // print_elem(game_subset);
         game_subset.erase(0, pos + 2);
 
         game_id_ok &= is_num_cubes_valid(cubes_str);
@@ -52,7 +52,7 @@ int main() {
     }
   }
 
-  print_num(game_id_sum);
+  print_elem(game_id_sum);
   return 0;
 }
 #else
@@ -61,8 +61,8 @@ void update_min_cubes_colors(string cubes_str,
   const int pos = cubes_str.find(" ");
   const int num_cubes = stoi(cubes_str.substr(0, pos));
   const string color = cubes_str.substr(pos + 1);
-  // print_num(num_cubes);
-  // print_num(color);
+  // print_elem(num_cubes);
+  // print_elem(color);
   if (min_cubes_colors[color] < num_cubes) {
     min_cubes_colors[color] = num_cubes;
   }
@@ -75,8 +75,8 @@ int main() {
     int pos = line.find(": ");
     const int game_id = stoi(line.substr(0, pos));
     line.erase(0, pos + 2);
-    // print_num(line);
-    // print_num(game_id);
+    // print_elem(line);
+    // print_elem(game_id);
     unordered_map<string, int> min_cubes_colors{
         {"red", 0}, {"green", 0}, {"blue", 0}};
 
@@ -85,8 +85,8 @@ int main() {
       line.erase(0, pos + 2);
       while ((pos = game_subset.find(", ")) != string::npos) {
         string cubes_str = game_subset.substr(0, pos);
-        // print_num(cubes_str);
-        // print_num(game_subset);
+        // print_elem(cubes_str);
+        // print_elem(game_subset);
         game_subset.erase(0, pos + 2);
 
         update_min_cubes_colors(cubes_str, min_cubes_colors);
@@ -106,7 +106,7 @@ int main() {
                       min_cubes_colors["blue"];
   }
 
-  print_num(sum_power_sets);
+  print_elem(sum_power_sets);
   return 0;
 }
 #endif

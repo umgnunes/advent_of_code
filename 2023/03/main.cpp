@@ -16,7 +16,7 @@ int main() {
   vector<vector<Nums>> q_nums;
   vector<vector<Symbol>> q_symbols;
   for (string line; getline(cin, line);) {
-    // print_num(line);
+    // print_elem(line);
     vector<Nums> nums;
     vector<Symbol> symbols;
     int num = 0;
@@ -32,7 +32,7 @@ int main() {
           num = 0;
         }
         if (c != '.') {
-          // print_num(i);
+          // print_elem(i);
           symbols.push_back({i});
         }
         pos_begin = i + 1;
@@ -46,8 +46,8 @@ int main() {
     q_symbols.push_back(symbols);
   }
 
-  // print_num(q_nums.size());
-  // print_num(q_symbols.size());
+  // print_elem(q_nums.size());
+  // print_elem(q_symbols.size());
 
   for (int l = 0; l < q_nums.size(); ++l) {
     for (auto num : q_nums[l]) {
@@ -58,7 +58,7 @@ int main() {
           // cout << "symbol: " << s << ' ' << symbol.pos << '\n';
           if (num.pos_begin - 1 <= symbol.pos &&
               symbol.pos <= num.pos_end + 1) {
-            // print_num(num.num);
+            // print_elem(num.num);
             sum_parts += num.num;
             s = l + 2;
             break;
@@ -67,7 +67,7 @@ int main() {
       }
     }
   }
-  print_num(sum_parts);
+  print_elem(sum_parts);
   return 0;
 }
 #else
@@ -76,7 +76,7 @@ int main() {
   vector<vector<Nums>> q_nums;
   vector<vector<Symbol>> q_symbols;
   for (string line; getline(cin, line);) {
-    // print_num(line);
+    // print_elem(line);
     vector<Nums> nums;
     vector<Symbol> symbols;
     int num = 0;
@@ -92,7 +92,7 @@ int main() {
           num = 0;
         }
         if (c == '*') {
-          // print_num(i);
+          // print_elem(i);
           symbols.push_back({i});
         }
         pos_begin = i + 1;
@@ -106,8 +106,8 @@ int main() {
     q_symbols.push_back(symbols);
   }
 
-  // print_num(q_nums.size());
-  // print_num(q_symbols.size());
+  // print_elem(q_nums.size());
+  // print_elem(q_symbols.size());
 
   for (int s = 0; s < q_symbols.size(); ++s) {
     for (auto symbol : q_symbols[s]) {
@@ -116,7 +116,7 @@ int main() {
         for (auto num : q_nums[l]) {
           if (num.pos_begin - 1 <= symbol.pos &&
               symbol.pos <= num.pos_end + 1) {
-            // print_num(num.num);
+            // print_elem(num.num);
             adjacent_nums.push_back(num.num);
           }
         }
@@ -126,7 +126,7 @@ int main() {
       }
     }
   }
-  print_num(sum_parts);
+  print_elem(sum_parts);
   return 0;
 }
 #endif
