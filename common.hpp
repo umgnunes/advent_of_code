@@ -22,3 +22,13 @@ template <typename T> void print_pairs(const T &pairs) {
     cout << '(' << p.first << ',' << p.second << ')' << '\n';
   }
 }
+
+template <typename T> vector<T> string_to_vec(const string &s) {
+  vector<T> v;
+  stringstream sm(s);
+  T num;
+  while (sm >> num) {
+    v.push_back(num);
+  }
+  return v;
+}
