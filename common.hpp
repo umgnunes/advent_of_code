@@ -23,6 +23,17 @@ template <typename T> void print_pairs(const T &pairs) {
   }
 }
 
+void string_remove_char(string &s, const char c) {
+  s.erase(remove(s.begin(), s.end(), c), s.end());
+}
+
+template <typename T> T string_to_num(const string &s) {
+  stringstream sm(s);
+  T num;
+  sm >> num;
+  return num;
+}
+
 template <typename T> vector<T> string_to_vec(const string &s) {
   vector<T> v;
   stringstream sm(s);
