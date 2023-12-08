@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <unordered_map>
@@ -7,6 +8,14 @@
 #include <vector>
 
 using namespace std;
+
+template <typename T> T lcm_vec(const vector<T> &v) {
+  size_t r = 1;
+  for (const auto &e : v) {
+    r = lcm(r, e);
+  }
+  return r;
+}
 
 template <typename T> void print_elem(const T &elem) { cout << elem << '\n'; }
 
