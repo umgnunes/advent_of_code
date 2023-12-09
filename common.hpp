@@ -9,6 +9,14 @@
 
 using namespace std;
 
+template <typename T> vector<T> diff_vec(const vector<T> &v) {
+  vector<T> v_diff(v.size() - 1);
+  for (size_t i = 1; i < v.size(); ++i) {
+    v_diff[i - 1] = v[i] - v[i - 1];
+  }
+  return v_diff;
+}
+
 template <typename T> T lcm_vec(const vector<T> &v) {
   size_t r = 1;
   for (const auto &e : v) {
@@ -51,4 +59,9 @@ template <typename T> vector<T> string_to_vec(const string &s) {
     v.push_back(num);
   }
   return v;
+}
+
+template <typename T> bool vec_all_zero(const vector<T> &v) {
+  const size_t sum_v = accumulate(v.begin(), v.end(), 0);
+  return sum_v == 0;
 }
